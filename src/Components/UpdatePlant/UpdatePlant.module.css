@@ -1,0 +1,147 @@
+.updateContainer {
+    padding: 1.5rem;
+    margin-left: 1rem;
+    background-color: white;
+}
+
+.title {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 2rem;
+}
+
+.formContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.formRow {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.formGroup label {
+    font-size: 0.9rem;
+    color: #333;
+}
+
+.formGroup input,
+.formGroup select,
+.formGroup textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #000;
+    border-radius: 4px;
+    background-color: #fff;
+    font-size: 1rem;
+}
+
+.formGroup input:focus,
+.formGroup select:focus,
+.formGroup textarea:focus {
+    outline: none;
+    border-color: #000;
+    box-shadow: 0 0 0 1px #000;
+}
+
+.formGroup input[type="file"] {
+    padding: 0.5rem;
+    border: none;
+}
+
+.formGroup input[type="file"]:focus {
+    box-shadow: none;
+}
+
+.temperatureInputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.submitButton {
+    margin-top: 1rem;
+    padding: 0.75rem;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 0.375rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.submitButton:hover {
+    background-color: #45a049;
+}
+
+.loading {
+    text-align: center;
+    padding: 2rem;
+    font-size: 1.2rem;
+    color: #666;
+}
+
+.error {
+    color: #dc3545;
+    font-size: 0.8rem;
+    margin-top: 0.25rem;
+}
+
+.currentImage {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 0.375rem;
+    margin: 0.5rem 0;
+}
+
+.uploadLabel {
+    display: block;
+    margin-top: 1rem;
+    color: #333;
+    font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .updateContainer {
+        padding: 1rem;
+        margin-left: 0;
+    }
+
+    .formRow {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+    }
+
+    .title {
+        font-size: 1.25rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .formGroup input,
+    .formGroup select {
+        padding: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .updateContainer {
+        padding: 0.5rem;
+    }
+
+    .title {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+    }
+}
