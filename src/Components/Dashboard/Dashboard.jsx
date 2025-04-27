@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation, Outlet, Navigate } from 'react-router-dom';
 import styles from './Dashboard.module.css';
 import dashboardHome from './dashboardhome.png';
-import plant from "../Dashboard/plant.png";
+import plant from "./plant.png";
 import addPlantIcon from "../Add-plant/Addplanticon.png";
 import { motion } from 'framer-motion';
 import { FaBars, FaTimes, FaUser } from 'react-icons/fa';
@@ -15,6 +15,7 @@ export default function Dashboard() {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const [userData, setUserData] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [plants, setPlants] = useState([]);
 
     useEffect(() => {
         const fetchUserData = async () => {
@@ -37,6 +38,24 @@ export default function Dashboard() {
         fetchUserData();
     }, []);
 
+    useEffect(() => {
+        const fetchPlants = async () => {
+            try {
+                const token = localStorage.getItem('token');
+                const response = await axios.get('https://green-world-vert.vercel.app/plant/userPlants', {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+                setPlants(response.data.plants);
+            } catch (error) {
+                console.error('Error fetching plants:', error);
+            }
+        };
+
+        fetchPlants();
+    }, []);
+
     const menuItemVariants = {
         hidden: { x: -50, opacity: 0 },
         visible: (i) => ({
@@ -51,7 +70,6 @@ export default function Dashboard() {
     };
 
     const isActive = (path) => {
-        if (path === '/dashboard/add-plant' && location.pathname === '/dashboard') return true;
         return location.pathname === path;
     };
 
@@ -59,16 +77,43 @@ export default function Dashboard() {
         setIsSidebarOpen(!isSidebarOpen);
     };
 
-    // إذا كان المستخدم في الصفحة الرئيسية للداشبورد، سيتم توجيهه إلى صفحة Add Plant
-    if (location.pathname === '/dashboard') {
-        return <Navigate to="/dashboard/add-plant" replace />;
-    }
+    const renderDashboardContent = () => {
+        if (location.pathname === '/dashboard') {
+            return (
+                <div className={styles.dashboardHome}>
+                    <h2>Welcome to Your Dashboard</h2>
+                    <div className={styles.statsContainer}>
+                        <div className={styles.statCard}>
+                            <h3>Total Plants</h3>
+                            <p>{plants.length}</p>
+                        </div>
+                        <div className={styles.statCard}>
+                            <h3>Healthy Plants</h3>
+                            <p>{plants.filter(plant => plant.health === 'good').length}</p>
+                        </div>
+                        <div className={styles.statCard}>
+                            <h3>Needs Attention</h3>
+                            <p>{plants.filter(plant => plant.health !== 'good').length}</p>
+                        </div>
+                    </div>
+                    <div className={styles.quickActions}>
+                        <Link to="/dashboard/add-plant" className={styles.actionButton}>
+                            Add New Plant
+                        </Link>
+                        <Link to="/dashboard/plant" className={styles.actionButton}>
+                            View All Plants
+                        </Link>
+                    </div>
+                </div>
+            );
+        }
+        return <Outlet />;
+    };
 
     return (
         <div className={styles.container}>
             <div className={styles.header}>
                 <div className={styles.userProfileSection}>
-               
                     {!loading && userData && (
                         <span className={styles.userName}>{userData.userName}</span>
                     )}
@@ -100,6 +145,22 @@ export default function Dashboard() {
                 transition={{ duration: 0.5 }}
             >
                 <div className={styles.sidebarContent}>
+                    <motion.div
+                        custom={0}
+                        variants={menuItemVariants}
+                        initial="hidden"
+                        animate="visible"
+                    >
+                        <Link
+                            to="/dashboard"
+                            className={`${styles.menuItem} ${isActive('/dashboard') ? styles.active : ''}`}
+                            onClick={() => setIsSidebarOpen(false)}
+                        >
+                            <img src={dashboardHome} alt="Dashboard" className={styles.icon} />
+                            <span>Dashboard</span>
+                        </Link>
+                    </motion.div>
+
                     <motion.div
                         custom={1}
                         variants={menuItemVariants}
@@ -147,7 +208,7 @@ export default function Dashboard() {
 
             <div className={styles.mainContent}>
                 <div className={styles.content}>
-                    <Outlet />
+                    {renderDashboardContent()}
                 </div>
             </div>
         </div>
