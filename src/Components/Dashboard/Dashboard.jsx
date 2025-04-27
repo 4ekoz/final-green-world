@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation, Outlet, Navigate } from 'react-router-dom';
+import { Link, useLocation, Outlet } from 'react-router-dom';
 import styles from './Dashboard.module.css';
 import dashboardHome from './dashboardhome.png';
 import plant from "./plant.png";
@@ -8,14 +8,12 @@ import { motion } from 'framer-motion';
 import { FaBars, FaTimes, FaUser } from 'react-icons/fa';
 import Logout from '../Logout/Logout';
 import axios from 'axios';
-import Profile from '../Profile/Profile';
 
 export default function Dashboard() {
     const location = useLocation();
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const [userData, setUserData] = useState(null);
     const [loading, setLoading] = useState(true);
-    const [plants, setPlants] = useState([]);
 
     useEffect(() => {
         const fetchUserData = async () => {
@@ -36,24 +34,6 @@ export default function Dashboard() {
         };
 
         fetchUserData();
-    }, []);
-
-    useEffect(() => {
-        const fetchPlants = async () => {
-            try {
-                const token = localStorage.getItem('token');
-                const response = await axios.get('https://green-world-vert.vercel.app/plant/userPlants', {
-                    headers: {
-                        'Authorization': `Bearer ${token}`
-                    }
-                });
-                setPlants(response.data.plants);
-            } catch (error) {
-                console.error('Error fetching plants:', error);
-            }
-        };
-
-        fetchPlants();
     }, []);
 
     const menuItemVariants = {
@@ -80,31 +60,13 @@ export default function Dashboard() {
     const renderDashboardContent = () => {
         if (location.pathname === '/dashboard') {
             return (
-                <div className={styles.dashboardHome}>
-                    <h2>Welcome to Your Dashboard</h2>
-                    <div className={styles.statsContainer}>
-                        <div className={styles.statCard}>
-                            <h3>Total Plants</h3>
-                            <p>{plants.length}</p>
-                        </div>
-                        <div className={styles.statCard}>
-                            <h3>Healthy Plants</h3>
-                            <p>{plants.filter(plant => plant.health === 'good').length}</p>
-                        </div>
-                        <div className={styles.statCard}>
-                            <h3>Needs Attention</h3>
-                            <p>{plants.filter(plant => plant.health !== 'good').length}</p>
-                        </div>
-                    </div>
-                    <div className={styles.quickActions}>
-                        <Link to="/dashboard/add-plant" className={styles.actionButton}>
-                            Add New Plant
-                        </Link>
-                        <Link to="/dashboard/plant" className={styles.actionButton}>
-                            View All Plants
-                        </Link>
-                    </div>
-                </div>
+                <motion.div
+                    className={styles.dashboardHome}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.5 }}
+                >
+                </motion.div>
             );
         }
         return <Outlet />;
@@ -138,12 +100,7 @@ export default function Dashboard() {
                 />
             )}
 
-            <motion.div
-                className={`${styles.sidebar} ${isSidebarOpen ? styles.open : ''}`}
-                initial={{ x: -250 }}
-                animate={{ x: 0 }}
-                transition={{ duration: 0.5 }}
-            >
+            <div className={`${styles.sidebar} ${isSidebarOpen ? styles.open : ''}`}>
                 <div className={styles.sidebarContent}>
                     <motion.div
                         custom={0}
@@ -204,12 +161,10 @@ export default function Dashboard() {
                         </motion.div>
                     </div>
                 </div>
-            </motion.div>
+            </div>
 
             <div className={styles.mainContent}>
-                <div className={styles.content}>
-                    {renderDashboardContent()}
-                </div>
+                {renderDashboardContent()}
             </div>
         </div>
     );
