@@ -68,7 +68,7 @@
     top: 0;
     bottom: 0;
     width: 250px;
-    background-color: #0C1D0E;
+    background-color: #1E4620;
     color: white;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
     z-index: 200;
@@ -139,6 +139,9 @@
     top: 0;
     right: 0;
     z-index: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .dashboardHero {
@@ -340,10 +343,12 @@
     .welcomeText {
         width: 90%;
         padding: 15px;
+        top: 50%;
+        transform: translate(-50%, -50%);
     }
 
     .welcomeText h1 {
-        font-size: 24px;
+        font-size: 32px;
     }
 
     .mainContent {
@@ -500,14 +505,14 @@
 
 .profileLink:hover {
     transform: scale(1.1);
-    background-color: #1E3D1B;
+    background-color: #1E4620;
 }
 
 .welcomeText {
     position: absolute;
     left: 50%;
-    top: 15px;
-    transform: translateX(-50%);
+    top: 50%;
+    transform: translate(-50%, -50%);
     max-width: 90%;
     padding: 20px;
     color: white;
@@ -516,9 +521,9 @@
 }
 
 .welcomeText h1 {
-    font-size: 28px;
+    font-size: 42px;
     font-weight: 600;
-    margin-bottom: 0;
+    margin-bottom: 20px;
     line-height: 1.4;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
