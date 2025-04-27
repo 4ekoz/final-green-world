@@ -102,9 +102,7 @@ export default function Dashboard() {
         <div className={styles.container}>
             <div className={styles.header}>
                 <div className={styles.userProfileSection}>
-                    {!loading && userData && (
-                        <span className={styles.userName}>{userData.userName}</span>
-                    )}
+                    <span className={styles.userName}>shreef</span>
                     <Link to="/dashboard/profile" className={styles.profileLink}>
                         <FaUser className={styles.profileIcon} />
                     </Link>
