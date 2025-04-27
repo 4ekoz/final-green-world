@@ -73,7 +73,7 @@ export default function Dashboard() {
                         transition={{ duration: 1 }}
                     >
                         <motion.h1>
-                            {Array.from("An Exciting Journey Around The Planet").map((char, index) => (
+                            {Array.from("Welcome to Green World").map((char, index) => (
                                 <motion.span
                                     key={index}
                                     initial={{ opacity: 0, x: -20 }}
@@ -137,8 +137,8 @@ export default function Dashboard() {
                             className={`${styles.menuItem} ${isActive('/dashboard') ? styles.active : ''}`}
                             onClick={() => setIsSidebarOpen(false)}
                         >
-                            <img src={dashboardHome} alt="Dashboard" className={styles.icon} />
-                            <span>Dashboard</span>
+                            <img src={dashboardHome} alt="Overview" className={styles.icon} />
+                            <span>Overview</span>
                         </Link>
                     </motion.div>
 
