@@ -299,7 +299,9 @@
     }
 
     .dashboardHome {
-        padding: 20px;
+        width: 100%;
+        margin-left: 0;
+        padding: 0;
     }
 
     .dashboardHero {
@@ -333,6 +335,25 @@
     .actionButton {
         width: 100%;
         justify-content: center;
+    }
+
+    .welcomeText {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .welcomeText h1 {
+        font-size: 24px;
+    }
+
+    .mainContent {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .header {
+        left: 0;
+        width: 100%;
     }
 }
 
@@ -487,7 +508,7 @@
     left: 50%;
     top: 15px;
     transform: translateX(-50%);
-    max-width: 800px;
+    max-width: 90%;
     padding: 20px;
     color: white;
     z-index: 10;
@@ -498,9 +519,8 @@
     font-size: 28px;
     font-weight: 600;
     margin-bottom: 0;
-    line-height: 1.2;
+    line-height: 1.4;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    white-space: nowrap;
 }
 
 .welcomeText p {
