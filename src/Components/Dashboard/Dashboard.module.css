@@ -140,12 +140,22 @@
     right: 0;
     z-index: 0;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
 }
 
-.dashboardHero {
-    display: none;
+.welcomeText {
+    text-align: center;
+    color: white;
+    padding-top: 40px;
+    width: 100%;
+}
+
+.welcomeText h1 {
+    font-size: 42px;
+    font-weight: 600;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .statsContainer {
@@ -506,39 +516,4 @@
 .profileLink:hover {
     transform: scale(1.1);
     background-color: #1E4620;
-}
-
-.welcomeText {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    max-width: 90%;
-    padding: 20px;
-    color: white;
-    z-index: 10;
-    text-align: center;
-}
-
-.welcomeText h1 {
-    font-size: 42px;
-    font-weight: 600;
-    margin-bottom: 20px;
-    line-height: 1.4;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.welcomeText p {
-    font-size: 20px;
-    line-height: 2;
-    opacity: 0.95;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-    max-width: 600px;
-    letter-spacing: 1px;
-    word-spacing: 4px;
-    margin: 0 auto;
-}
-
-.welcomeText span {
-    margin: 0 1px;
 }

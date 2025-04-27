@@ -72,9 +72,11 @@
     text-align: center;
 }
 
-/* Remove bottom border from status cells */
 .plantTable td:last-child {
     border-bottom: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .plantTable tr:hover {
@@ -102,7 +104,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
 }
 
 .statusIcons {
@@ -113,7 +114,6 @@
     margin: 0;
     padding: 0;
     width: 100px;
-    height: 100%;
 }
 
 .statusIconSuccess,
@@ -121,7 +121,7 @@
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    display: flex;
+    display: inline-flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
@@ -156,8 +156,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
     min-height: 60px;
+}
+
+/* Ensure the status cell maintains consistent height */
+.plantTable tr td:last-child {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Add specific width to the table header */
@@ -165,14 +172,13 @@
     width: 100px;
 }
 
-/* Center the icons container */
-.plantTable td:last-child {
+/* Center the icons container vertically */
+.status {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100%;
-    min-height: 60px;
-    border-bottom: none;
+    width: 100px;
 }
 
 .loadingContainer {
