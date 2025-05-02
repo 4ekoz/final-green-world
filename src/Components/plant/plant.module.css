@@ -101,19 +101,15 @@
     text-align: center;
     padding: 0;
     width: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .statusIcons {
     display: flex;
-    gap: 4px;
+    margin-top: 16px;
+    padding: 25px;
     justify-content: center;
+    gap: 10px;
     align-items: center;
-    margin: 0;
-    padding: 0;
-    width: 100px;
 }
 
 .statusIconSuccess,
@@ -121,7 +117,7 @@
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    display: inline-flex;
+    display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
@@ -138,7 +134,7 @@
 
 .statusIconError {
     color: white;
-    background-color: #dc3545;
+    background-color: #dc2626;
 }
 
 /* Make sure the Status header text is centered */

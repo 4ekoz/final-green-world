@@ -37,7 +37,7 @@ export default function UpdatePlant() {
             temperatureRangeMin: '',
             image: null
         },
-        validationSchema,
+        validationSchema: validationSchema,
         onSubmit: async (values) => {
             try {
                 const formData = new FormData();
@@ -98,7 +98,7 @@ export default function UpdatePlant() {
                 }
 
                 const response = await axios.get(
-                    `https://green-world-vert.vercel.app/plant/${id}`,
+                    `https://green-world-vert.vercel.app/plant/get-specific/${id}`,
                     {
                         headers: {
                             token: token

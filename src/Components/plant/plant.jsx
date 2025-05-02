@@ -227,7 +227,7 @@ function PlantPage() {
                   </td>
                   <td className={styles.description}>{plant.description}</td>
                   <td className={styles.status}>
-                    <div className={styles.statusIcons}>
+                    <div className={styles.statusIcons} >
                       <Link
                         to={`/dashboard/update-plant/${plant._id}`}
                         className={styles.statusIconSuccess}
