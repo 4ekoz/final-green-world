@@ -38,15 +38,41 @@
     justify-content: center;
     width: 40px;
     height: 40px;
-    background-color: rgba(45, 90, 39, 0.7);
+    background-color: rgba(45, 90, 39, 0.9);
     border-radius: 50%;
     color: white;
     transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(45, 90, 39, 0.3);
+    animation: fadeIn 0.5s ease-in-out;
 }
 
 .profileIcon {
     font-size: 20px;
     color: white;
+    animation: pulse 2s infinite;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
 
 .menuButton {
@@ -147,12 +173,12 @@
 .contentWrapper {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     width: 100%;
     max-width: 1200px;
-    padding: 60px 40px;
+    padding: 40px;
     margin: 0 auto;
-    gap: 60px;
+    gap: 30px;
 }
 
 .textContent {
@@ -196,13 +222,13 @@
 }
 
 .greenPlantImage {
-    max-width: 55%;
+    max-width: 90%;
     height: auto;
     object-fit: contain;
     opacity: 1;
     transition: all 0.5s ease;
     animation: fadeInRight 1s ease-out;
-    margin-left: 0;
+    margin-left: -20px;
 }
 
 @keyframes fadeInRight {
