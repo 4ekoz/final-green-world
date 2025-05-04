@@ -1,6 +1,6 @@
 .logoutButton {
-  background-color: #4CAF50; /* لون أخضر */
-  color: white;
+  background-color: #ffffff; /* لون أبيض */
+  color: #000000;
   padding: 8px 16px;
   border: none;
   border-radius: 4px;
@@ -14,7 +14,7 @@
 }
 
 .logoutButton:hover {
-  background-color: #388E3C; /* لون أخضر أغمق عند التحويم */
+  background-color: #f0f0f0; /* لون رمادي فاتح عند التحويم */
 }
 
 .logoutIcon {

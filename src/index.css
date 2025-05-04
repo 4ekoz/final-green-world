@@ -2,8 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 :root {
-    --main-color: #2c7a4b;
-    --light-color: #f7fcf8;
+    --main-color: #ffffff;
+    --light-color: #ffffff;
     --shadow: rgba(44, 122, 75, 0.2) 0px 2px 4px -1px,
         rgba(44, 122, 75, 0.14) 0px 4px 5px 0px,
         rgba(44, 122, 75, 0.12) 0px 1px 10px 0px;

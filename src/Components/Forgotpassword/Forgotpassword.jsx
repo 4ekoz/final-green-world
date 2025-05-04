@@ -7,9 +7,9 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { motion } from "framer-motion";
 import "./Forgotpassword.css";
-import shreefforgot from "../Forgotpassword/Email.png";
-import shreefforgott from "../Forgotpassword/Forget Password_.png";
-import shreefforgottt from "../Forgotpassword/dont worry.png";
+import emailIcon from "../Forgotpassword/Email.png";
+import forgotPasswordTitle from "../Forgotpassword/Forget Password_.png";
+import dontWorryImage from "../Forgotpassword/dont worry.png";
 import elhakel from "../Forgotpassword/alhakel.png";
 
 const ForgotPassword = () => {
@@ -64,15 +64,15 @@ const ForgotPassword = () => {
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
         <div className="form-title-container">
-          <img src={shreefforgott} alt="Forget Password?" className="form-title-image" />
+          <img src={forgotPasswordTitle} alt="Forget Password?" className="form-title-image" />
         </div>
         <div className="form-description-container">
-          <img src={shreefforgottt} alt="Don't worry! It happens." className="form-description-image" />
+          <img src={dontWorryImage} alt="Don't worry! It happens." className="form-description-image" />
         </div>
 
         <form onSubmit={formik.handleSubmit} className="forgot-password-form">
           <div className="input-group">
-            <img src={shreefforgot} alt="Email" className="email-label-image" />
+            <img src={emailIcon} alt="Email" className="email-label-image" />
             <div className="email-input-container">
               <img src={elhakel} alt="Email Background" className="email-background-image" />
               <input

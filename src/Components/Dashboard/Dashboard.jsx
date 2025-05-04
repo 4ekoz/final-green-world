@@ -4,6 +4,7 @@ import styles from './Dashboard.module.css';
 import dashboardHome from './dashboardhome.png';
 import plant from "./plant.png";
 import addPlantIcon from "../Add-plant/Addplanticon.png";
+import greenplant from "../../Assets/images/greenplant.png";
 import { motion } from 'framer-motion';
 import { FaBars, FaTimes, FaUser } from 'react-icons/fa';
 import Logout from '../Logout/Logout';
@@ -66,6 +67,14 @@ export default function Dashboard() {
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.5 }}
                 >
+                    <div className={styles.contentWrapper}>
+                        <div className={styles.textContent}>
+                            <h1>Smart agriculture is in your hands</h1>
+                            <p>We provide you with a smart application that helps you choose the right plant for your geographical location by automatically determining the local weather.</p>
+                            <p>You can also upload a picture of any plant to get its name, or find out the diseases that afflict it and suggest the appropriate treatment using artificial intelligence.</p>
+                        </div>
+                        <img src={greenplant} alt="Green Plant" className={styles.greenPlantImage} />
+                    </div>
                 </motion.div>
             );
         }
@@ -76,7 +85,7 @@ export default function Dashboard() {
         <div className={styles.container}>
             <div className={styles.header}>
                 <div className={styles.userProfileSection}>
-                    <span className={styles.userName}>shreef</span>
+                    <span className={styles.userName}>{userData?.name || 'User'}</span>
                     <Link to="/dashboard/profile" className={styles.profileLink}>
                         <FaUser className={styles.profileIcon} />
                     </Link>
@@ -166,4 +175,4 @@ export default function Dashboard() {
             </div>
         </div>
     );
-} 
+}
